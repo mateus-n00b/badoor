@@ -14,4 +14,4 @@ HTTP backdoor in python
      Example:
              python3 badoor_client.py 192.168.56.2 8000 
       
- Mateus-n00b *-*.
+ Mateus-n00b \*-\*.
