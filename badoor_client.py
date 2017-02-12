@@ -12,18 +12,19 @@
 import http.client as hc
 import sys,re
 
-if len(sys.argv) < 3:
-    print "Usage: %s <target> <port>" % sys.argv[0]
-    sys.exit(1)
 
-TARGET      =           sys.argv[1]
-PORT        =           sys.argv[2]
+def cool_banner():
+    print\
+    '''
+         _               _
+        | |             | |
+        | |__   __ _  __| | ___   ___  _ __
+        | '_ \ / _` |/ _` |/ _ \ / _ \| '__|
+        | |_) | (_| | (_| | (_) | (_) | |
+        |_.__/ \__,_|\__,_|\___/ \___/|_|
 
-try:
-    ht = hc.HTTPConnection(TARGET,PORT)
-except Exception as err:
-    print "[-] Error to connect!\n{0}".format(err)
-    sys.exit(1)
+                                    by n00b
+    '''
 
 def parser(htmlTxt):
     text = ""
@@ -48,6 +49,22 @@ def main():
         fp.write(rep)
         fp.close()
         print "[+] Download completed!"
+
+
+cool_banner()
+
+if len(sys.argv) < 3:
+    print "Usage: %s <target> <port>\n" % sys.argv[0]
+    sys.exit(1)
+
+TARGET      =           sys.argv[1]
+PORT        =           sys.argv[2]
+
+try:
+    ht = hc.HTTPConnection(TARGET,PORT)
+except Exception as err:
+    print "[-] Error to connect!\n{0}".format(err)
+    sys.exit(1)
 
 if __name__ == '__main__':
     main()
